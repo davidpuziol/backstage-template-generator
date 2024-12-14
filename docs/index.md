@@ -1,9 +1,8 @@
-# Template: ${template_name}
+# Create template
 
 ## Descrição
 
 ## Tags
-
 
 Este template foi criado para facilitar a configuração e o deploy de ${template_use_case}.
 
