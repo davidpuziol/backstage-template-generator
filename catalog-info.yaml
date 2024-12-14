@@ -57,6 +57,7 @@ spec:
             type: string
             pattern: "^[a-z]+$"  # Regex: permite apenas letras minúsculas
           ui:field: MultiTagInputField  # Permite adicionar múltiplas tags
+          uniqueItems: true
       errorMessage:
         properties:
           name: 'Only lowercase and dashes can be used'
