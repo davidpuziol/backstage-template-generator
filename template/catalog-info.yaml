@@ -54,18 +54,6 @@ spec:
             type: string
             pattern: "^[a-z]+$"  # Regex: allows only lowercase letters
           ui:field: MultiTagInputField 
-  steps:
-    - id: fetch-base
-      name: Fetch Base
-      action: fetch:template
-      input:
-        url: ./template
-        values:
-          name: '${{ parameters.name }}'
-          owner: '${{ parameters.owner }}'
-          principalTag: '${{ parameters.principalTag }}'
-          otherTags: '${{ parameters.otherTags }}'
-          description: '${{ parameters.description }}'
 
   steps:
     - id: fetch-base
