@@ -100,6 +100,7 @@ spec:
           owner: ${{parameters.owner}}
           principalTag: ${{parameters.principalTag}}
           otherTags: ${{parameters.otherTags}}
+          description: ${{parameters.description}}
     - id: publish
       name: Publish
       action: publish:github
