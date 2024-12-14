@@ -11,7 +11,7 @@ metadata:
     - {{ parameters.otherTags }}
 spec:
   owner: {{ parameters.owner }}
-  type: {{ parameters.type | default('resource') }}  # Type can be dynamically set, defaulting to 'resource'
+  type: {{ parameters.type | default('resource') }}
 
   parameters:
     - title: General Inputs
