@@ -11,7 +11,7 @@ metadata:
   tags:
     - general
 spec:
-  owner: group:team-idp
+  owner: team-idp
   type: template
 
   parameters:
