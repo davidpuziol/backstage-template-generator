@@ -110,7 +110,12 @@ spec:
       input:
         allowedHosts: ['github.com']
         description: This is ${{ parameters.name }}
-        repoUrl: ${{ parameters.repoUrl.split("=")[0] }}=${{ parameters.repoUrl.split("=")[1] }}=backstage-template-${{ parameters.repoUrl.split("=") | last }}
+        repoUrl: >
+          ${{ 
+            parameters.repoUrl.split('/').slice(0, -1).join('/') + 
+            '/backstage-template-' + 
+            parameters.repoUrl.split('/').last()
+          }}
         repoVisibility: private
   output:
     links:
