@@ -2,16 +2,15 @@ apiVersion: backstage.io/v1beta2
 kind: Template
 
 metadata:
-  name: {{ parameters.name }}
-  title: {{ parameters.name }} Template
-  description: Base template for creating {{ parameters.name }}-based projects
+  name: ${{ values.name  }}
+  title: ${{ values.name }} Template
+  description: Base template for creating ${{ values.name }}-based projects
   backstage.io/techdocs-ref: dir: .
   tags:
-    - {{ parameters.principalTag }}
-    - {{ parameters.otherTags }}
+    - ${{ values.principalTag }}
 spec:
-  owner: {{ parameters.owner }}
-  type: {{ parameters.type | default('resource') }}
+  owner: ${{ values.owner }}
+  type: ${{ values.type | default('resource') }}
   lifecycle: production
   parameters:
     - title: General Inputs
@@ -58,9 +57,9 @@ spec:
       name: Generate Template
       action: fetch:template
       input:
-        url: ./{{ parameters.name }}
+        url: ./${{ values.name }}
         values:
-          name: ${{ parameters.name }}
-          owner: ${{ parameters.owner }}
-          principalTag: ${{ parameters.principalTag }}
-          otherTags: ${{ parameters.otherTags }}
+          name: $${{ values.name }}
+          owner: $${{ values.owner }}
+          principalTag: $${{ values.principalTag }}
+          otherTags: $${{ values.otherTags }}

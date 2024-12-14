@@ -1,3 +1,3 @@
 # {{ parameters.name }} Template
 
-{{ parameters.description }}
+${{ values.description }}
