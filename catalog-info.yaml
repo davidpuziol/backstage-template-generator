@@ -110,7 +110,7 @@ spec:
       input:
         allowedHosts: ['github.com']
         description: This is ${{ parameters.name }}
-        repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: backstage-template-${{ parameters.repoUrl }}
         repoVisibility: private
   output:
     links:
