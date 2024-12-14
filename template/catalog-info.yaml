@@ -36,6 +36,7 @@ spec:
             catalogFilter:
               kind: Group
               spec.type: team
+            allowCustomValues: false
         principalTag:
           title: General Tag
           type: string
