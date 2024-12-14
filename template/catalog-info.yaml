@@ -9,6 +9,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.
   tags:
     - ${{ values.principalTag }}
+
 spec:
   owner: ${{ values.owner }}
   type: ${{ values.type | default('resource') }}
@@ -51,8 +52,7 @@ spec:
           items:
             type: string
             pattern: "^[a-z]+$"  # Regex: allows only lowercase letters
-          ui:field: MultiTagInputField  # Allows adding multiple tags
-
+          ui:field: MultiTagInputField 
   steps:
     - id: fetch-base
       name: Fetch Base
