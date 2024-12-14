@@ -33,10 +33,10 @@ spec:
           description: Owner of the component
           ui:field: OwnerPicker
           ui:options:
+            allowArbitraryValues: false
             catalogFilter:
               kind: Group
               spec.type: team
-            allowCustomValues: false
         principalTag:
           title: General Tag
           type: string
