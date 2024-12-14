@@ -2,11 +2,8 @@
 
 ## Descrição
 
-${template_description}
-
 ## Tags
 
-${tags}
 
 Este template foi criado para facilitar a configuração e o deploy de ${template_use_case}.
 
