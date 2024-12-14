@@ -12,7 +12,7 @@ metadata:
 spec:
   owner: {{ parameters.owner }}
   type: {{ parameters.type | default('resource') }}
-
+  lifecycle: production
   parameters:
     - title: General Inputs
       required:
