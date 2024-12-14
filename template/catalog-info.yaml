@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1beta2
+kind: Template
+
+metadata:
+  name: {{ parameters.name }}
+  title: {{ parameters.name }} Template
+  description: Base template for creating {{ parameters.name }}-based projects
+  backstage.io/techdocs-ref: dir: .
+  tags:
+    - {{ parameters.principalTag }}
+    - {{ parameters.otherTags }}
+spec:
+  owner: {{ parameters.owner }}
+  type: {{ parameters.type | default('resource') }}  # Type can be dynamically set, defaulting to 'resource'
+
+  parameters:
+    - title: General Inputs
+      required:
+        - name
+        - owner
+      properties:
+        name:
+          title: Template Name
+          type: string
+          pattern: "^[a-z-]+$"
+          description: Template Name
+          ui:autofocus: true
+          ui:help: 'Only lowercase and dashes'
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            catalogFilter:
+              kind: Group
+              spec.type: team
+        principalTag:
+          title: General Tag
+          type: string
+          description: Principal Tag
+          default: general
+          enum:
+            - code
+            - infra
+            - general
+          ui:help: 'Used to categorize the template'
+        otherTags:
+          description: List of other tags (only lowercase letters and hyphen allowed)
+          type: array
+          items:
+            type: string
+            pattern: "^[a-z]+$"  # Regex: allows only lowercase letters
+          ui:field: MultiTagInputField  # Allows adding multiple tags
+
+  steps:
+    - id: create-template
+      name: Generate Template
+      action: fetch:template
+      input:
+        url: ./{{ parameters.name }}
+        values:
+          name: ${{ parameters.name }}
+          owner: ${{ parameters.owner }}
+          principalTag: ${{ parameters.principalTag }}
+          otherTags: ${{ parameters.otherTags }}

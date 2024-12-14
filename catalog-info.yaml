@@ -1,0 +1,114 @@
+apiVersion: backstage.io/v1beta2
+kind: Template
+
+metadata:
+  name: template-generator
+  title: Template to create template
+  description: Generator using basic organizational rules
+  backstage.io/techdocs-ref: dir:.
+  annotations:
+    backstage.io/time-saved: PT4H
+  tags:
+    - general
+spec:
+  owner: group:team-idp
+  type: template
+
+  parameters:
+    - title: General Inputs
+      required:
+        - name  
+        - owner
+        - principalTag
+      properties:
+        name:
+          title: Template Name
+          type: string
+          pattern: "^[a-z-]+$"
+          description: Template Name
+          ui:autofocus: true
+          ui:help: 'Only lowercase and dashes'
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            catalogFilter:
+              kind: Group
+              spec.type: team
+
+        principalTag:
+          title: General Tag
+          type: string
+          description: Principal Tag
+          default: general
+          enum:
+            - code
+            - infra
+            - general
+          ui:help: 'Used do Group'
+        otherTags:
+          description: List of other tags (only lowercase letters and hyphen allowed)
+          type: array
+          items:
+            type: string
+            pattern: "^[a-z]+$"  # Regex: permite apenas letras minúsculas
+          ui:field: MultiTagInputField  # Permite adicionar múltiplas tags
+      errorMessage:
+        properties:
+          name: 'Only lowercase and dashes can be used'
+
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl: 
+          title: Repository Location
+          description: The prefix backstage-template- will be added automatically
+          type: string
+          ui:field: RepoUrlPicker
+          ui:help: | 
+            SAME NAME GIVEN TO THE TEMPLATE
+          ui:options:
+            allowedHosts:
+              - github.com
+              - gitlab.com
+            allowedOrganizations:
+              - davidpuziol
+            allowedOwners:
+              - davidpuziol
+
+    - title: Documentation
+      properties:
+        description:
+          title: Write some description to be added to documentation
+          type: string
+          ui:widget: textarea
+          ui:options:
+            rows: 10
+          ui:placeholder: |
+            Do not forget write documentation!
+  steps:
+    - id: fetch-base
+      name: Fetch Base
+      action: fetch:template
+      input:
+        url: ./template
+        values:
+          name: ${{parameters.name}}
+          owner: ${{parameters.owner}}
+          principalTag: ${{parameters.principalTag}}
+          otherTags: ${{parameters.otherTags}}
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        description: This is ${{ parameters.name }}
+        repoUrl: ${{ parameters.repoUrl }}
+        repoVisibility: private
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps['publish'].output.remoteUrl }}
+
