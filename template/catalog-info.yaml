@@ -54,13 +54,14 @@ spec:
           ui:field: MultiTagInputField  # Allows adding multiple tags
 
   steps:
-    - id: create-template
-      name: Generate Template
+    - id: fetch-base
+      name: Fetch Base
       action: fetch:template
       input:
-        url: ./${{ values.name }}
+        url: ./template
         values:
-          name: $${{ values.name }}
-          owner: $${{ values.owner }}
-          principalTag: $${{ values.principalTag }}
-          otherTags: $${{ values.otherTags }}
+          name: ${{parameters.name}}
+          owner: ${{parameters.owner}}
+          principalTag: ${{parameters.principalTag}}
+          otherTags: ${{parameters.otherTags}}
+          description: ${{parameters.description}}
