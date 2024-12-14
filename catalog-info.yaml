@@ -6,8 +6,9 @@ metadata:
   name: template-generator
   title: Template to create template
   description: Generator using basic organizational rules
-  backstage.io/techdocs-ref: dir:.
+
   annotations:
+    backstage.io/techdocs-ref: dir:.
     backstage.io/time-saved: PT4H
   tags:
     - general
