@@ -12,7 +12,8 @@ metadata:
     - general
 spec:
   owner: team-idp
-  type: template
+  type: ground
+  lifecycle: production
 
   parameters:
     - title: General Inputs
