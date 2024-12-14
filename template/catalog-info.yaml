@@ -1,11 +1,12 @@
-apiVersion: backstage.io/v1beta2
+apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 
 metadata:
   name: ${{ values.name  }}
   title: ${{ values.name }} Template
   description: Base template for creating ${{ values.name }}-based projects
-  backstage.io/techdocs-ref: dir: .
+  annotations:
+    backstage.io/techdocs-ref: dir:.
   tags:
     - ${{ values.principalTag }}
 spec:
