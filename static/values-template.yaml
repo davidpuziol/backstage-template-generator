@@ -1,0 +1,5 @@
+name: ${{ parameters.name }}
+owner: ${{ parameters.owner }}
+principalTag: ${{ parameters.principalTag }}
+otherTags: ${{ parameters.otherTags }}
+description: ${{ parameters.description }}
