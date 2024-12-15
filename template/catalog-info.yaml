@@ -62,7 +62,7 @@ spec:
       input:
         url: ./template
         values:
-          name: $${{ parameters.name }}
+          # name: $${{ parameters.name }}
           owner: "$${{ parameters.owner }}"
           # principalTag: '$${{ {{ parameters.principalTag }} }}'      
           # otherTags: "$${{ {{ parameters.principalTag }} }}'"    
