@@ -64,6 +64,6 @@ spec:
         values:
           name: $${{ parameters.name }}
           owner: "$${{ parameters.owner }}"
-          principalTag: '$${{ {{ parameters.principalTag }} }}'      
-          otherTags: "$${{ {{ parameters.principalTag }} }}'"    
-          description: '${{ {{ parameters.description }} }}'
+          # principalTag: '$${{ {{ parameters.principalTag }} }}'      
+          # otherTags: "$${{ {{ parameters.principalTag }} }}'"    
+          # description: '${{ {{ parameters.description }} }}'
