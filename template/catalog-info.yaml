@@ -61,4 +61,4 @@ spec:
       action: fetch:template
       input:
         url: ./template
-        values: ./static/values-template.yaml
+        values: ./template/static/values-template.yaml
