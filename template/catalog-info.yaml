@@ -9,9 +9,9 @@ metadata:
     backstage.io/techdocs-ref: dir:.
   tags:
     - ${{ values.principalTag }}
-    {%- for tag in values.otherTags -%}
+    {%- for tag in values.otherTags %}
     - {{ tag }}
-    {%- endfor -%}
+    {%- endfor %}
 
 spec:
   owner: ${{ values.owner }}
