@@ -10,7 +10,7 @@ metadata:
 
   tags:
     - ${{ values.principalTag }}
-    - ${{ values.otherTags }
+    - ${{ values.otherList | join(",") }}
 
 spec:
 
