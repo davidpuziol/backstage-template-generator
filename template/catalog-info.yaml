@@ -7,10 +7,12 @@ metadata:
   description: Base template for creating ${{ values.name }}-based projects
   annotations:
     backstage.io/techdocs-ref: dir:.
-
+    
   tags:
     - ${{ values.principalTag }}
-    - ${{ values.otherList | join(",") }}
+    {%- for tag in values.otherTags %}
+    - ${{ tag }}
+    {%- endfor %}
 
 spec:
 
