@@ -12,7 +12,7 @@ metadata:
     {% for tag in values.otherTags -%}
     - ${{ tag }}
     {% endfor %}
-    
+
 spec:
   owner: ${{ values.owner }}
   type: ${{ values.type | default('resource') }}
