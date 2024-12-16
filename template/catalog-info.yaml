@@ -10,7 +10,7 @@ metadata:
   tags:
     - ${{ values.principalTag }}
       {% for tag in values.otherTags -%}
-      ${{ tag }}
+    - ${{ tag }}
       {% endfor -%}
 
 spec:
