@@ -8,10 +8,10 @@ metadata:
   annotations:
     backstage.io/techdocs-ref: dir:.
   tags:
-  - ${{ values.principalTag }}
+    - ${{ values.principalTag }}
     {%- for tag in values.otherTags -%}
-    - ${{ tag }}
-    {% endfor -%}
+    - {{ tag }}
+    {%- endfor -%}
 
 spec:
   owner: ${{ values.owner }}
