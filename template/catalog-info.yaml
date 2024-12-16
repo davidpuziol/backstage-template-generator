@@ -61,4 +61,9 @@ spec:
       action: fetch:template
       input:
         url: ./template
-        values: ./template/static/values-template.yaml
+      values:
+        name: '{{"${{ parameters.name }}"}}'
+        owner: '{{"${{ parameters.owner }}"}}'
+        principalTag: '{{"${{ parameters.principalTag }}"}}'
+        otherTags: '{{"${{ parameters.otherTags }}"}}'
+        description: '{{"${{ parameters.description }}"}}'
