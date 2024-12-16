@@ -9,11 +9,8 @@ metadata:
     backstage.io/techdocs-ref: dir:.
   tags:
     - ${{ values.principalTag }}
-    {% for tag in values.otherTags %}
-    - ${{ tag }}
-    {% endfor %}
-
-spec:
+    - ${{ values.otherTags | toYaml }}
+  spec:
   owner: ${{ values.owner }}
   type: ${{ values.type | default('resource') }}
   lifecycle: production
