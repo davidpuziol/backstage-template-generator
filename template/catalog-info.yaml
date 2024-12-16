@@ -11,7 +11,7 @@ metadata:
     - ${{ values.principalTag }}
     {% for tag in values.otherTags -%}
     - ${{ tag }}
-    {% endfor %}
+    {% endfor -%}
 
 spec:
   owner: ${{ values.owner }}
