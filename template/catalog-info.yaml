@@ -9,7 +9,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.
   tags:
     - ${{ values.principalTag }}
-    - ${{ values.otherTags | toYaml }}
+
   spec:
   owner: ${{ values.owner }}
   type: ${{ values.type | default('resource') }}
