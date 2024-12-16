@@ -10,7 +10,7 @@ metadata:
   tags:
     - ${{ values.principalTag }}
 
-  spec:
+spec:
   owner: ${{ values.owner }}
   type: ${{ values.type | default('resource') }}
   lifecycle: production
@@ -67,4 +67,3 @@ metadata:
         principalTag: ${{ '${{ parameters.principalTag }}' }}
         otherTags: ${{ '${{ parameters.otherTags }}' }}
         description: ${{ '${{ parameters.description }}' }}
-  
