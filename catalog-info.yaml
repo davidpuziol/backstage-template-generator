@@ -112,7 +112,7 @@ spec:
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl.split("repo=")[0] }}repo=backstage-template-${{ parameters.repoUrl.split("repo=")[1] }}
         repoVisibility: private
-        defaultBranch: 'main'
+        defaultBranch: main
     - id: register
       name: Register
       action: catalog:register
